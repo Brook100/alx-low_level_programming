@@ -1,32 +1,33 @@
-#include "holberton.h"
-/**
- *leet - a function that encodes a string into 1337.
- *@s: string to be crypted .
- *Return: pointer to s .
- *Update V 1.0 : In this new code , i changed 2 arrays with 2 pointers, that
- *are pointed to the BASS adresses of the 2 arrays.
- *in addition to that , i assigned a pointer p to s.
- */
+#include "main.h"
 
+/**
+  * leet - Encodes a string into 1337
+  * @s: The string to encode
+  *
+  * Return: The encoded string
+  */
 char *leet(char *s)
 {
-	char *m = "aeotl";
-	char *M = "AEOTL";
-	int x[] = {'4', '3', '0', '7', '1'};
-	int i;
-	char *p = s;
+	int a = 0, b = 0, l = 5;
+	char r[5] = {'A', 'E', 'O', 'T', 'L'};
+	char n[5] = {'4', '3', '0', '7', '1'};
 
-	while (*s != '\0')
+	while (s[a])
 	{
+		b = 0;
 
-		for (i = 0; i < 5; i++)
+		while (b < l)
 		{
-			if (*s == *(m + i) || *s == *(M + i))
+			if (s[a] == r[b] || s[a] - 32 == r[b])
+			{
+				s[a] = n[b];
+			}
 
-				*s = x[i];
+			b++;
 		}
-		s++;
 
+		a++;
 	}
-	return (p);
+
+	return (s);
 }
